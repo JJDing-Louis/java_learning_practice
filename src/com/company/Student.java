@@ -27,25 +27,25 @@ public class Student {
         return score;
     }
 
-    //輸入學生座號(防呆未做)
+    //輸入學生座號(輸入防呆未做)
     public void setSeat_number() {
         System.out.println("請輸入學生座位：");
         this.seat_number = sc.nextInt();
     }
 
-    //輸入學生班級(防呆未做)
+    //輸入學生班級(輸入防呆未做)
     public void setClass_name() {
         System.out.println("請輸入學生班級：");
         this.class_name = sc.next();
     }
 
-    //輸入學生姓名(防呆未做)
+    //輸入學生姓名(輸入防呆未做)
     public void setName() {
         System.out.println("請輸入學生姓名：");
         this.name = sc.next();
     }
 
-    //輸入學生成績
+    //輸入學生成績(輸入防呆未做)
     public void setScore() {
         while (true) {
             System.out.println("請輸入學生分數：");

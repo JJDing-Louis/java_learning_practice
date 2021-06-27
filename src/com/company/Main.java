@@ -11,7 +11,7 @@ public class Main {
     public static void main(String[] args) {
         // write your code herex
 
-
+        //建立功能選項介面
         while (true) {
             System.out.println("功能說明:\n1.新增學生\n2.搜尋學生\n3.學生成績排序(由大到小)" +
                     "\n4.學生座號排序\n5.更改學生成績\n6.結束程式\n請輸入指令:");
@@ -42,16 +42,17 @@ public class Main {
 
     }
 
-    //在思考如何優化
+    //修改學生成績
     private static void modify_student_score() {
         while (true) {
-            boolean state = true;//標記查詢狀態
+            boolean state = true;//標記查詢狀態(true表示找到，false表示沒找到)
             System.out.println("請輸入學生座號: ");
             int set_number = sc.nextInt();
             for (int i = 0; i < students.length; i++) {
                 if (students[i].getSeat_number() == set_number) {
                     System.out.println("該學生的成績為: " + students[i].getScore());
                     students[i].setScore();
+                    System.out.println("學生: "+students[i]+"成績修改為: "+students[i].getScore());
                     state = false;
                     break;
                 }
@@ -65,7 +66,7 @@ public class Main {
     }
 
     private static void print_student_seat_number() {
-        if (students.length != 1) {
+        if (students.length != 1) { //資料數量未達兩筆以上，不排序
             bubbleSort_student(2);
         }
         for (Student student : students) {
@@ -76,7 +77,7 @@ public class Main {
 
     //排序學生成績，並印出
     private static void print_student_socre() {
-        if (students.length != 1) {
+        if (students.length != 1) { //資料數量未達兩筆以上，不排序
             bubbleSort_student(1);
         }
         for (Student student : students) {
@@ -98,7 +99,8 @@ public class Main {
 
     //建立學生資料(Done)
     public static void create_student() {
-        if (students.length == count) { //這一段再確認
+        //Array資料不足，新增空間
+        if (students.length == count) {
             increaseArray();
         }
         Student student = new Student();
@@ -119,7 +121,7 @@ public class Main {
         students = student_Array;
     }
 
-    //排序
+    //排序(氣泡排序法)
     public static void bubbleSort_student(int num) {
         Student temp;
         for (int i = 0; i < students.length - 1; i++) {
