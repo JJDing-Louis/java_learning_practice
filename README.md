@@ -20,7 +20,7 @@ Make a subject and learn
 ## Coding 內容
 
 ### 建立學生類別
-```java=
+```java
 public class Student {
     Scanner sc = new Scanner(System.in);
     private int seat_number; //座號
