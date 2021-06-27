@@ -81,14 +81,14 @@ public class Student {
 ```
 ### 主程式(Main)
 0. 全域變數
-```java=
+```java
 public static Student[] students = new Student[1]; //預設兩筆資料空格座使用
 public static Scanner sc = new Scanner(System.in);
 public static int count = 0; // 紀錄資料數量
 ```
 
 1. 建立功能介面
-```java=
+```java
 //建立功能選項介面
 while (true) {
     System.out.println("功能說明:\n1.新增學生\n2.搜尋學生\n3.學生成績排序(由大到小)" +
@@ -116,7 +116,7 @@ while (true) {
     }
 ```
 2. 建立學生(create_student())
-```java=
+```java
 //建立學生資料(Done)
 public static void create_student() {
     //Array資料不足，新增空間
@@ -133,7 +133,7 @@ public static void create_student() {
 }
 ```
 3. 查詢學生成績(find_student_score())
-```java=
+```java
 private static void find_student_score() {
     System.out.println("請輸入座號:");
     int seat_number = sc.nextInt();
@@ -145,7 +145,7 @@ private static void find_student_score() {
 }        
 ```
 4. 排序學生成績(print_student_socre())
-```java=
+```java
 //排序學生成績，並印出
 private static void print_student_socre() {
     if (students.length != 1) { //資料數量未達兩筆以上，不排序
@@ -170,7 +170,7 @@ private static void print_student_seat_number() {
 }
 ```
 6. 修改學生成績(modify_student_score())
-```java=
+```java
     //修改學生成績
 private static void modify_student_score() {
     while (true) {
@@ -196,7 +196,7 @@ private static void modify_student_score() {
 7. 結束程式(System.exit(0))
 ### 其他模組化程式碼
 1. 擴充陣列(increaseArray())
-```java=
+```java
 //建立陣列擴充
 public static void increaseArray() {
     Student[] student_Array = new Student[students.length + 1];
@@ -209,7 +209,7 @@ public static void increaseArray() {
 2. 排序(氣泡排序法)(bubbleSort_student(int num))
 1 => 表示分數排序
 2 => 表示座號排序
-```java=
+```java
 //排序(氣泡排序法)
 public static void bubbleSort_student(int num) {
     Student temp;
