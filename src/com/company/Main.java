@@ -4,9 +4,9 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static Student[] students = new Student[2];
+    public static Student[] students = new Student[1]; //預設兩筆資料空格座使用
     public static Scanner sc = new Scanner(System.in);
-    public static int count=0;
+    public static int count = 0; // 紀錄資料數量
 
     public static void main(String[] args) {
         // write your code herex
@@ -52,17 +52,22 @@ public class Main {
                 if (students[i].getSeat_number() == set_number) {
                     System.out.println("該學生的成績為: " + students[i].getScore());
                     students[i].setScore();
+                    state = false;
                     break;
                 }
             }
             if (state) {
                 System.out.println("查無此學生!!");
+            } else {
+                break;
             }
         }
     }
 
     private static void print_student_seat_number() {
-        bubbleSort_student(students, 2);
+        if (students.length != 1) {
+            bubbleSort_student(2);
+        }
         for (Student student : students) {
             System.out.println("學生座號:" + student.getSeat_number() + " 學生班級:" + student.getClass_name() +
                     " 學生姓名:" + student.getClass_name() + " 學生成績:" + student.getScore() + "分");
@@ -71,7 +76,9 @@ public class Main {
 
     //排序學生成績，並印出
     private static void print_student_socre() {
-        bubbleSort_student(students, 1);
+        if (students.length != 1) {
+            bubbleSort_student(1);
+        }
         for (Student student : students) {
             System.out.println("學生座號:" + student.getSeat_number() + " 學生班級:" + student.getClass_name() +
                     " 學生姓名:" + student.getClass_name() + " 學生成績:" + student.getScore() + "分");
@@ -89,10 +96,10 @@ public class Main {
         }
     }
 
-    //建立學生資料(在思考一下)
+    //建立學生資料(Done)
     public static void create_student() {
-        if (students.length == count+1) { //這一段再確認
-            doubleArray();
+        if (students.length == count) { //這一段再確認
+            increaseArray();
         }
         Student student = new Student();
         student.setSeat_number();
@@ -104,16 +111,16 @@ public class Main {
     }
 
     //建立陣列擴充
-    public static void doubleArray() {
-        Student[] student_Array = new Student[students.length * 2];
+    public static void increaseArray() {
+        Student[] student_Array = new Student[students.length + 1];
         for (int i = 0; i < students.length; i++) {
             student_Array[i] = students[i];
         }
-        students = student_Array; //再確認
+        students = student_Array;
     }
 
     //排序
-    public static void bubbleSort_student(Student[] students, int num) {
+    public static void bubbleSort_student(int num) {
         Student temp;
         for (int i = 0; i < students.length - 1; i++) {
             for (int j = 0; j < students.length - 1 - i; j++) {
@@ -131,7 +138,6 @@ public class Main {
                             students[i] = students[i + 1];
                             students[i + 1] = temp;
                         }
-
                 }
 
             }

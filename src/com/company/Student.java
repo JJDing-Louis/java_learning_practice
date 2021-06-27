@@ -11,13 +11,6 @@ public class Student {
     private int score;
 
 
-    // public Student(int seat_number, String class_name, String name, int score) {
-    //     this.seat_number = seat_number;
-    //     this.class_name = class_name;
-    //     this.name = name;
-    //     this.score = score;
-    // }
-
     public int getSeat_number() {
         return seat_number;
     }
