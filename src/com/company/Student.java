@@ -4,11 +4,11 @@ package com.company;
 import java.util.Scanner;
 
 public class Student {
+    Scanner sc = new Scanner(System.in);
     private int seat_number;
     private String class_name;
     private String name;
     private int score;
-    Scanner sc = new Scanner(System.in);
 
 
     // public Student(int seat_number, String class_name, String name, int score) {
